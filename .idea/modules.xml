@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/howToUseJPA.iml" filepath="$PROJECT_DIR$/.idea/howToUseJPA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpa-basic/jpa-basic.iml" filepath="$PROJECT_DIR$/jpa-basic/jpa-basic.iml" />
     </modules>
   </component>
 </project>

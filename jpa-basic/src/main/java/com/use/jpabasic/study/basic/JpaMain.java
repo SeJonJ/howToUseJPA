@@ -1,4 +1,4 @@
-package com.use.jpabasic.basic;
+package com.use.jpabasic.study.basic;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
