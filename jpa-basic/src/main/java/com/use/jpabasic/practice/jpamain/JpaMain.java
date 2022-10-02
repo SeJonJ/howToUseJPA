@@ -1,4 +1,7 @@
-package com.use.jpabasic.practice.domain;
+package com.use.jpabasic.practice.jpamain;
+
+import com.use.jpabasic.practice.domain.Member;
+import com.use.jpabasic.practice.domain.Order;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
