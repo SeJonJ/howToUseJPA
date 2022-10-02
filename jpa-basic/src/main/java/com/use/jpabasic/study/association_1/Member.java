@@ -39,6 +39,17 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    // 연관관계 매핑을 위한 메서드
+    // 이것을 통해서 team 을 넣어주면 해당 team 의 members 에 자기자신 객체를 넣는다
+    // 이렇게 하면 뒤에서 team.getMembers().add(member) 따로 setter(Team team) 해서 2번 할 필요는 없어진다
+   public void addMembers(Team team){
+        // 현재 Member 의 Team 에 매개변수로 넘어온 team 을 넣어준다 : member -> team
+       this.team = team;
+
+        // this 는 현재 자기 자신 객체 의미한다 : team -> member
+        team.getMembers().add(this);
+    }
+
     private String userName;
 
 }
