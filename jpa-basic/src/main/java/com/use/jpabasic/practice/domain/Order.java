@@ -41,4 +41,9 @@ public class Order {
         orderItem.setOrder(this);
     }
 
+    // Order - delivery 관계에서 order 이 연관관계의 주인
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;
+
 }

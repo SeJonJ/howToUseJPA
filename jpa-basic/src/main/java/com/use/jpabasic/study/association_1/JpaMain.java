@@ -54,31 +54,31 @@ public class JpaMain {
 //
 //        em.persist(team);
 
-        /* 옮게 된 양방향 연관관계 매핑 */
-        /* 연관관계 주인쪽에서 FK 를 등록 */
-        // Team 생성
-        Team team = new Team();
-        team.setTeamName("TeamEE");
-        em.persist(team);
+//        /* 옮게 된 양방향 연관관계 매핑 */
+//        /* 연관관계 주인쪽에서 FK 를 등록 */
+//        // Team 생성
+//        Team team = new Team();
+//        team.setTeamName("TeamEE");
+//        em.persist(team);
 
-        /* team 과 member 모두 2중으로 세팅한다 */
-        // Member 생성
-        Member member = Member.builder()
-                .userName("memberEE")
-                .build();
-        em.persist(member);
-
-        // 메서드가 동작하면서 Member 안에 team 에 매개변수로 던지는 team 을 세팅하고
-        // 다시 team 의 members 에는 현재 member 자기 자기 객체를 추가한다
-        member.addMembers(team);
-
-        // 만약 이 상태에서 바로 teamDD 의 members 를 가져온다면 어떻게 될까?
-        Team teamDD = em.find(Team.class, team.getId());
-        System.out.println("---- 출력 -----");
-        teamDD.getMembers().forEach(m -> {
-            System.out.println(m.toString());
-        });
-        System.out.println("=========================");
+//        /* team 과 member 모두 2중으로 세팅한다 */
+//        // Member 생성
+//        Member member = Member.builder()
+//                .userName("memberEE")
+//                .build();
+//        em.persist(member);
+//
+//        // 메서드가 동작하면서 Member 안에 team 에 매개변수로 던지는 team 을 세팅하고
+//        // 다시 team 의 members 에는 현재 member 자기 자기 객체를 추가한다
+//        member.addMembers(team);
+//
+//        // 만약 이 상태에서 바로 teamDD 의 members 를 가져온다면 어떻게 될까?
+//        Team teamDD = em.find(Team.class, team.getId());
+//        System.out.println("---- 출력 -----");
+//        teamDD.getMembers().forEach(m -> {
+//            System.out.println(m.toString());
+//        });
+//        System.out.println("=========================");
 
         tx.commit();
         em.close();

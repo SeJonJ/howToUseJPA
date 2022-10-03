@@ -1,8 +1,13 @@
 package com.use.jpabasic.study.association_1;
 
+import com.use.jpabasic.study.association_2.Locker;
+import com.use.jpabasic.study.association_2.MemberProduct;
+import com.use.jpabasic.study.association_2.Product;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "teamMember")
 @Table
@@ -52,4 +57,12 @@ public class Member {
 
     private String userName;
 
+    // Member 하나당 Locker 하나
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
+    // 다대다 매핑에서 memberproduct 테이블을 따로 만들어서 일대다로 변경!!
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 }
