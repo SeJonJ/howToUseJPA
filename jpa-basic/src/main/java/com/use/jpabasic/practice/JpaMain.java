@@ -1,4 +1,4 @@
-package com.use.jpabasic.practice.jpamain;
+package com.use.jpabasic.practice;
 
 import com.use.jpabasic.practice.domain.Member;
 import com.use.jpabasic.practice.domain.Order;
