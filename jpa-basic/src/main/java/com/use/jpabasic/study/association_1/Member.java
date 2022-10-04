@@ -3,6 +3,7 @@ package com.use.jpabasic.study.association_1;
 import com.use.jpabasic.study.association_2.Locker;
 import com.use.jpabasic.study.association_2.MemberProduct;
 import com.use.jpabasic.study.association_2.Product;
+import com.use.jpabasic.study.highClassMapping.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,7 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Member {
+// 매핑 정보만을 위한 부모 클래스(superclass)
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue

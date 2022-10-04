@@ -8,12 +8,11 @@ import java.util.List;
 
 @Entity
 @Table
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Getter
 @Setter
-public class Item {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "item_type")
+public abstract class Item extends BaseEntity{
 
     @Id
     @GeneratedValue
