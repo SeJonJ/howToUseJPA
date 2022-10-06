@@ -1,5 +1,6 @@
 package com.use.jpabasic.study.association_1;
 
+import com.use.jpabasic.study.highClassMapping.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Team {
+public class Team extends BaseEntity {
 
     @Id
     @GeneratedValue

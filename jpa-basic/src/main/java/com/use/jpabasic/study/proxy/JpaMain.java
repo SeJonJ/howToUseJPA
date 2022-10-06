@@ -17,10 +17,10 @@ public class JpaMain {
         tx.begin();
 
         Member member = new Member();
-        member.setUserName("hello");
+        member.setUserName("aa");
 
         Team team = new Team();
-        team.setTeamName("hello");
+        team.setTeamName("haaello");
 
         member.addMembers(team);
 
@@ -30,21 +30,29 @@ public class JpaMain {
         em.flush();
         em.clear();
 
-        Member reference = em.getReference(Member.class, 2L);
-        Member findMember = em.find(Member.class, reference.getId());
-        System.out.println("findMember == reference : " + (findMember == reference));
-        System.out.println("findMember : "+findMember.getClass());
-        System.out.println("reference : "+reference.getClass());
+        em.createQuery("select m from teamMember m", Member.class)
+                .getResultList();
+
+
+//        Member reference = em.getReference(Member.class, 2L);
+//        Member findMember = em.find(Member.class, reference.getId());
+//        System.out.println("findMember == reference : " + (findMember == reference));
+//        System.out.println("findMember : "+findMember.getClass());
+//        System.out.println("reference : "+reference.getClass());
+
+        // 즉시 로딩으로 설정해두었기 때문에 member 를 가져오는 순간 team 테이블을 join 해서
+        // member 와 함께 team 에 대한 내용을 가져온다
+//        Member findMember = em.find(Member.class, member.getId());
+//        System.out.println(findMember.getClass() + " " + findMember.getId());
+//
+//        System.out.println("------------ Member 엔티티 안 Team 내용 가져오기 ----------------");
+//
+//        System.out.println(findMember.getTeam().getClass()+" "+findMember.getTeam().getTeamName());
 
         tx.commit();
 
-
-
         em.close();
         emf.close();
-
-
-
 
     }
 }

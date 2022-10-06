@@ -42,7 +42,8 @@ public class Member extends BaseEntity {
           - 이때 사용하는 어노테이션이 joinColumn 어노테이션이고, 파라미터로 join 하는 컬럼명을 갖는다
     */
 
-    @ManyToOne
+    // 연관관계 매핑의 요소에 fetch 를 사용하고, 파라미터의 값으로 로딩 전략을 설정한다
+    @ManyToOne(fetch = FetchType.EAGER) // member 조회 시 team 을 바로 함께 가져오도록 하는 즉시 로딩 전략
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
@@ -60,7 +61,7 @@ public class Member extends BaseEntity {
     private String userName;
 
     // Member 하나당 Locker 하나
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LOCKER_ID")
     private Locker locker;
 
