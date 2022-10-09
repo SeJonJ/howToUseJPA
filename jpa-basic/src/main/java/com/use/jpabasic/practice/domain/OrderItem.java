@@ -19,11 +19,11 @@ public class OrderItem {
     private Long id;
 
     // 현재 클래스 : ORDER => 하나의 ORDERITEM 에 여러 ORDER 이 올 수 있음 -> 1:N
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ITEM_ID")
     private Item item;
 

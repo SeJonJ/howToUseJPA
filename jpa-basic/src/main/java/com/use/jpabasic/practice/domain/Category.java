@@ -14,7 +14,7 @@ public class Category {
     private String name;
 
     // JPA 는 자기 자신을 조인 가능 : 부모 카테고리
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PARENT_ID")
     private Category parent;
 

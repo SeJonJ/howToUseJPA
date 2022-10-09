@@ -18,6 +18,7 @@ public class Delivery {
     @Enumerated(EnumType.STRING)
     private DelverStatus status;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Order order;
+
 }
