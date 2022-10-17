@@ -85,7 +85,8 @@ public class JpaMain {
 
         result.forEach(mem ->{
             System.out.println(mem.toString());
-        });
+        })
+                ;
 
 
         tx.commit();
